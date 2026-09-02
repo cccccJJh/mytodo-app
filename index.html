@@ -3,13 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>MyTodo</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 </head>
 <body>
   <main class="app">
     <header class="app-header">
-      <p class="eyebrow">MVP</p>
+      <div class="header-row">
+        <p class="eyebrow">Reminders</p>
+        <button
+          type="button"
+          id="themeToggle"
+          class="theme-switch"
+          role="switch"
+          aria-checked="false"
+          aria-label="다크 모드"
+        >
+          <span class="theme-switch-track">
+            <span class="theme-switch-thumb"></span>
+          </span>
+          <span class="theme-switch-label">다크 모드</span>
+        </button>
+      </div>
       <h1>MyTodo</h1>
       <p class="subtitle">할 일을 추가하고, 완료하고, 정리하세요</p>
     </header>
@@ -24,22 +47,9 @@
       <button type="button" id="addButton">추가</button>
     </section>
 
-    <ul id="todoList">
-      <li>
-        <label>
-          <input type="checkbox" checked>
-          <span class="completed">장보기</span>
-        </label>
-        <button type="button" class="delete-btn">삭제</button>
-      </li>
-      <li>
-        <label>
-          <input type="checkbox">
-          <span>우유 사기</span>
-        </label>
-        <button type="button" class="delete-btn">삭제</button>
-      </li>
-    </ul>
+    <ul id="todoList"></ul>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
