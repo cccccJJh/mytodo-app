@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyTodo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <p class="eyebrow">MVP</p>
+      <h1>MyTodo</h1>
+      <p class="subtitle">할 일을 추가하고, 완료하고, 정리하세요</p>
+    </header>
+
+    <section class="composer" aria-label="할 일 추가">
+      <input
+        type="text"
+        id="todoInput"
+        placeholder="할 일을 입력하세요"
+        autocomplete="off"
+      >
+      <button type="button" id="addButton">추가</button>
+    </section>
+
+    <ul id="todoList">
+      <li>
+        <label>
+          <input type="checkbox" checked>
+          <span class="completed">장보기</span>
+        </label>
+        <button type="button" class="delete-btn">삭제</button>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox">
+          <span>우유 사기</span>
+        </label>
+        <button type="button" class="delete-btn">삭제</button>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
